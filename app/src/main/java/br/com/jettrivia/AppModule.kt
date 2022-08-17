@@ -1,6 +1,7 @@
 package br.com.jettrivia
 
 import br.com.jettrivia.network.QuestionApi
+import br.com.jettrivia.repository.QuestionRepository
 import br.com.jettrivia.util.Constants
 import dagger.Module
 import dagger.Provides
@@ -13,6 +14,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
+
+
+    @Singleton
+    @Provides
+    fun provideQuestionRepository(api: QuestionApi) = QuestionRepository(api)
 
     @Singleton
     @Provides
