@@ -105,7 +105,10 @@ fun QuestionDisplay(
                 ShowProgress(score = questionIndex.value)
             }
 
-            QuestionTracker(counter = questionIndex.value)
+            QuestionTracker(
+                counter = questionIndex.value,
+                outOf = viewModel.getTotalQuestionsCount()
+            )
             DrawDottedLine(pathEffect = pathEffect)
             Column {
                 Text(
